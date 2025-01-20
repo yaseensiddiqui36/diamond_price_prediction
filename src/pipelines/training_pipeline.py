@@ -6,7 +6,7 @@ import pandas as pd
 
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
-
+from src.components.model_trainer import ModelTrainer
 
 if __name__ == '__main__':
     obj = DataIngestion()
@@ -14,4 +14,6 @@ if __name__ == '__main__':
     print(train_data_path,test_data_path)
     data_transformation_obj = DataTransformation()
     X_train, X_test, obj_path  = data_transformation_obj.initiate_data_transformation(train_data_path,test_data_path)
-
+    model_trainer = ModelTrainer()
+    model_trainer.initiate_model_training(X_train,X_test)
+    
